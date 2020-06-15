@@ -1,0 +1,88 @@
+# 3. 성적 관리 프로그램을 작성하고자 한다.
+# 한 학생의 점수는 4과목으로 구성된다(Bigdata, Python, Flask, DB).
+# 한 반의 전체 학생수는 5명이다.
+# 학생 리스트를 참고하여 다음과 같이 키보드에서 입력할 수 있다.
+# 학생명 입력, 학생명의 점수 입력(4과목 공백으로 구분)
+
+# 데이터 구조: [{홍길동:{과목명:점수}]
+
+scoreList = []
+subject = ['Bigdata', 'Python', 'Flask', 'DB']
+
+while True:
+    func = input(f'\t성적 입력(a) or 확인(s) or 검색(f) or 수정(u) or 삭제(d) or 종료(x) : ')
+    if func == 'a':
+        name = input(f'\t학생 이름: ')
+        record = input(f'\t학생의 4과목 성적: ')
+        recordList = record.split()
+        dic1 = {}
+        for i in range(4):
+            dic1[subject[i]] = recordList[i]
+        dic2 = {name: dic1}
+        scoreList.append(dic2)
+
+    elif func == 's':
+        print('\t이 름', end='\t')
+        for i in range(4):
+            print(f'{subject[i]}', end='\t')
+        print('\t평 균')
+        for a in scoreList:
+            for b, c in a.items():
+                print(f'\t{b}', end='\t')
+                total = 0
+                for s in c.keys():
+                    total += int(c[s])
+                    print(f'{c[s]}', end='\t\t')
+                avg = total/4
+                print(f'{avg}')
+
+    elif func == 'f':
+        name = input(f'\t학생 이름: ')
+        print('\t이 름', end='\t')
+        for i in range(4):
+            print(f'{subject[i]}', end='\t')
+        print()
+        for a in scoreList:
+            for b, c in a.items():
+                if b == name:
+                    print(f'\t{name}', end='\t')
+                    for s in c.keys():
+                        print(f'{c[s]}', end='\t\t')
+
+    elif func == 'u':
+        info = input('\t수정할 학생명 과목명 새점수: ')
+        infoList = info.split()
+        for a in scoreList:
+            for b, c in a.items():
+                if b == infoList[0]:
+                    c[infoList[1]] = int(infoList[2])
+                    completed = True
+                    print('\t수정 성공')
+                    break
+                if completed:
+                    break
+
+                    # 데이터 구조: [{홍길동:{과목명:점수}]
+    elif func == 'd':
+        name = input('\t삭제할 학생명: ')
+        for a in scoreList:
+            for b, c in a.items():
+                if b == name:
+                    msg = input('\t정말 삭제하시겠습니까?(Y/N): ')
+                    if msg == 'Y':
+                        del a[b]
+                        print(f'\t{name}의 정보가 삭제되었습니다.')
+                    else:
+                        print('\t일치하는 정보가 없습니다.')
+                        continue
+
+    elif func == 'x':
+        print('\t프로그램을 종료합니다.')
+        break
+    else:
+        print('\t입력 오류')
+
+
+
+
+

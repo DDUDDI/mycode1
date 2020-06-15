@@ -1,0 +1,11 @@
+
+	윈도우 기반 작업 스케쥴링
+	내 컴퓨터 > 관리 > 작업 스케쥴러 > 작업 만들기 > ...
+	
+	Task1)	30초마다 비프음(beep sound) 발생하는 기능 작성
+		(Hint)
+		import winsound as win
+		win.Beep(3000, 1000)
+
+	Task2) 	메모장 자동 실행 기능 작성
+	

@@ -1,0 +1,13 @@
+	CLI 명령어
+	
+	cd..			: 상위폴더로 이동
+	dir			: 디렉토리 내의 파일 리스트
+	cd name			: 디렉토리 이동(change directory)
+	copy con name		: file 생성(con=content)
+	copy name1 name2	: file 복사
+	type name		: file 읽기
+	move name directory	: file 이동
+	del name			: file 삭제
+	start name(앱, 주소)	: 실행
+	cls			: clear screen
+ 
